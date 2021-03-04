@@ -1,6 +1,6 @@
 ## Descrição do projeto :star:
 
-Uma plataforma desenvolvida junto a **Maratona Discovey** da <a href="https://www.rocketseat.com.br" target="_blank">[Rocketseat]</a>
+Uma plataforma desenvolvida junto a **Maratona Discover** da <a href="https://www.rocketseat.com.br" target="_blank">[Rocketseat]</a>
 
 ## Tecnologias utilizadas 🚀
 

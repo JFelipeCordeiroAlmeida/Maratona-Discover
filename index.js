@@ -59,10 +59,10 @@ const AddRowTable = {
 
   addTransaction(transaction, index) {
     const tr = document.createElement('tr');
-    tr.innerHTML = addRowTable.innerHTMLTransaction(transaction, index);
+    tr.innerHTML = AddRowTable.innerHTMLTransaction(transaction, index);
     tr.dataset.index = index;
 
-    addRowTable.transactionsContainer.appendChild(tr);
+    AddRowTable.transactionsContainer.appendChild(tr);
   },
 
   innerHTMLTransaction (transaction, index) {
@@ -75,7 +75,7 @@ const AddRowTable = {
       <td>
         <img onclick=Trasaction.remove(${index}) src="./assets/minus.svg" alt="Remover Transação">
     </td>`
-
+    console.log(HTML)
     return HTML;
   },
 
@@ -91,7 +91,7 @@ const AddRowTable = {
 }
 
 const Utils = {
-  formatDate(value) {
+  formatDate(date) {
     const splittedDate = date.split("-");
     return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
   },
@@ -130,11 +130,14 @@ const Form = {
 
   validadeField(){
     const { description, amount, date } = Form.getValues();
-
-    if(description.trim() === "" ||
-    amount.trim() === "" ||
-    date.trim() === ""){
-      throw new Eror(e)
+    if(description.trim() === ""){
+      throw new Error("Por favor, preencha o campo Descrição")
+    }
+    if (amount.trim() === "") {
+      throw new Error("Por favor, preencha o campo Valor")
+    }
+    if (date.trim() === ""){
+      throw new Error("Por favor, preencha o campo Data")
     }
   },
 
@@ -174,7 +177,7 @@ const Form = {
 
 const App = {
   init() {
-    transactions.all.forEach(AddRowTable.addTransaction);
+    Transaction.all.forEach(AddRowTable.addTransaction);
 
     AddRowTable.updateBalance();
 
